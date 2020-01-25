@@ -1,0 +1,162 @@
+.test{
+    background-color: lightcoral;
+}
+.test2{
+    background-color: lightgreen;
+}
+.test3{
+    background-color: olivedrab;
+}
+.test4{
+    background-color: lightgrey;
+}
+/* Разметка */
+.top_bar{
+    height: 35px;
+    background-color: #f7f7f7;
+}
+.header{
+    height: 120px;
+    background-color: #fbfbfb;
+}
+.line{
+    border-right:2px solid #efefef;
+    height: 80px;
+    margin-top: auto;
+}
+.header img{
+    margin-top: auto;
+}
+.basket{
+    border: 3px solid #7f7e7e !important;
+    height: 60px;
+    border-radius: 20px;
+    position: relative;
+    float: right;
+}
+.basket img{
+    position: absolute;
+    left: 10px;
+    bottom: 15px;
+}
+.basket span{
+    margin-left: 30px;
+    color: #7f7e7e;
+}
+
+.billboard{
+    height: 450px;
+    background-color: #edecec;
+    padding: 0;
+}
+.carousel-item img{
+    height: 450px;
+    width: 100%;
+}
+/* Шрифт */
+/* Текст */
+.top_bar span, .top_bar span a{
+    font-size: 12px;
+    color: #bababa;
+    margin-left: 10px;
+}
+.nav{
+    height: 100px;
+}
+.nav a{
+    color: #9d9d9d;
+    margin-left: 40px;
+    padding: 5px;
+}
+.no-margin{
+    padding-right: 0;
+    padding-left: 0;
+}
+/* Экстрамалые девайсы («телефоны», < 576px) */
+@media (min-width: 0px) {
+    body{
+        background-color: navajowhite;
+    }
+    .basket{
+         width:70px;
+    }
+    .basket img{
+        left: 15px;
+        bottom: 15px;
+    }
+    .nav a{
+        margin-left: 0px;
+    }
+    .billboard{
+        height: 250px; 
+    }
+    .carousel-item img{
+        height: 250px;
+    }
+     .no-margin{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+/* Малые девайсы («ландшафтные телефоны», >= 576px) */
+@media (min-width: 576px) {
+    body{
+        background-color: lightpink;
+    }
+    .basket{
+        width:70px;
+        margin-top: auto;
+    }
+    .basket img{
+        left: 15px;
+        bottom: 15px;
+    }
+    .nav a{
+        margin-left: 40px;
+    }
+    .billboard{
+        height: 350px;
+    }
+    .carousel-item img{
+        height: 350px;
+    }
+    .no-margin{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+/* Средние девайсы («таблетки», >= 768px) */
+@media (min-width: 768px) {
+    body{
+        background-color: lightseagreen;
+    }   
+    .nav a{
+        margin-left: 10px !important;
+     }
+     .line{
+         height: 70px;
+     }
+     .basket{
+         width: auto;
+     }
+     .basket img{
+         left: 6px;
+     }
+     .billboard{
+
+     }
+}
+
+/* Большие девайсы (десктопы, >= 992px) */
+@media (min-width: 992px) {
+    .nav a{
+        margin-left: 40px !important;
+     }
+     .line{
+        margin-top: 15px;
+     }
+
+/* Экстрабольшие девайсы (большие десктопы, >= 1200px) */
+@media (min-width: 1200px) {
+
+}
