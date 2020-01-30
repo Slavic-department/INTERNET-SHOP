@@ -1,20 +1,87 @@
 .test{
     background-color: lightcoral;
 }
+
 .test2{
     background-color: lightgreen;
 }
+
 .test3{
     background-color: olivedrab;
 }
+
 .test4{
     background-color: lightgrey;
 }
-/* Разметка */
+ul{
+    list-style: none;
+}
+.container{
+    max-width: 1300px !important;
+}
+a{
+    color: white;
+}
+.btn{
+    cursor: pointer;
+    color: black;
+}
+
+body{
+    background-color: navajowhite;
+}
+.no-margin{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/*////////////////////  внешний вид чекбокса ////////////////////*/
+input[type="checkbox"] {
+    display: none;
+}
+label {
+    color: #000;
+    cursor: default;
+    font-weight: normal;
+    line-height: 30px;
+    vertical-align: middle;
+}
+label:before {
+    content: " ";
+    color: #000;
+    display: inline-block;
+    font: 20px/30px Arial;
+    margin-right: 15px;
+    position: relative;
+    text-align: center;
+    text-indent: 0px;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border: 2px solid #C9CED0;
+    border-image: initial;
+    vertical-align: middle;
+}
+input:checked + label:before {
+    background-color: #4FB748;
+    border-color: #4FB748;
+    content: '\2713';
+    line-height: 16px;
+    color: white;
+}
+
+/*////////////////////  top_bar ////////////////////*/
 .top_bar{
     height: 35px;
     background-color: #f7f7f7;
 }
+.top_bar span, .top_bar span a{
+    font-size: 12px;
+    color: #bababa;
+    margin-left: 10px;
+}
+
+/*////////////////////  header ////////////////////*/
 .header{
     height: 120px;
     background-color: #fbfbfb;
@@ -38,27 +105,11 @@
     position: absolute;
     left: 10px;
     bottom: 15px;
+    background: url("img/star.png") no-repeat;
 }
 .basket span{
     margin-left: 30px;
     color: #7f7e7e;
-}
-
-.billboard{
-    height: 450px;
-    background-color: #edecec;
-    padding: 0;
-}
-.carousel-item img{
-    height: 450px;
-    width: 100%;
-}
-/* Шрифт */
-/* Текст */
-.top_bar span, .top_bar span a{
-    font-size: 12px;
-    color: #bababa;
-    margin-left: 10px;
 }
 .nav{
     height: 100px;
@@ -68,14 +119,252 @@
     margin-left: 40px;
     padding: 5px;
 }
-.no-margin{
-    padding-right: 0;
-    padding-left: 0;
+
+/*////////////////////  billboard ////////////////////*/
+.billboard{
+    height: 450px;
+    background-color: #edecec;
+    padding: 0;
 }
+.carousel-item img{
+    height: 450px;
+    width: 100%;
+}
+
+
+/*////////////////////  sorting_block ////////////////////*/
+.sorting .container{
+    height: 50px;
+    padding-top: 5px;
+    background-color: #fafafa;
+    box-shadow: 0 0.3px 1px rgba(0,0,0,0.5);
+}
+
+/*////////////////////  content ////////////////////*/
+.content .container{
+    margin-top: 15px;
+    background-color: #fafafa;
+    box-shadow: 0 0.5px 1px rgba(0,0,0,0.5);
+}
+.img_container{
+    height: 350px;
+    margin-bottom:15px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.img_container img{
+    width: 100%;
+    height: 100%;   
+}
+.item{
+    height: 500px;
+    padding-top: 15px;
+}
+.promotional_price{
+    font-size: 18px;
+    font-weight: bold;
+}
+.current_price{
+    font-size: 14px;
+    color: #717d84;
+}
+.price{
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    margin-left: 0;
+}
+.line-through{
+    text-decoration: line-through;
+}
+.title_item{
+    line-height: 1.4;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.more{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.btn_more{
+    background-color: none;
+    background-color: gainsboro;
+}
+
+/* Фильтры */
+.bottom_line{
+    margin-top: 10px;
+    /* border-bottom:1px solid rgba(0,0,0,0.12);; */
+}
+.title_type{
+    margin-left: 10px;
+}
+.form-check{
+    margin-top: 15px;
+}
+.form-check-input{
+    margin-left: 0px;
+}
+.scroll-bar{
+    margin-top: 25px;
+    height: 300px;
+    overflow: scroll;
+    overflow-x:hidden;
+    margin-bottom: 15px;
+}
+.form-control{
+    width: 60px;
+}
+.lines{
+    padding-top: 10px;
+    margin: auto;
+    width: 90%;
+    border-bottom: 1px solid lightgray;
+}
+.icon_search{
+    border: 1px solid rgba(0,0,0,.15);
+    border-right: none;
+    background-color: #fff;
+}
+.input-group-text{
+    background-color: #fff;
+}
+.form-control{
+    border-left: none;
+}
+.input-group{
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 92%;
+}
+
+
+
+/*////////////////////  Отсутствующий товар ////////////////////*/
+.unavalible_filter{
+    filter: grayscale(1) opacity(0.8);
+}
+.unavalible{
+    right: 0;
+    top: 20px;
+    position: absolute;
+    width: 95px;
+    height: 30px;
+    background-color: grey;
+    z-index: 3;
+}
+.unavalible::after{
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: -20px; 
+    top: 0px; /* Положение треугольника */
+    border: 10px solid transparent;
+    border-top: 10px solid grey; 
+    border-right: 10px solid grey; 
+}
+.unavalible::before{
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: -20px; 
+    bottom: 0px; /* Положение треугольника */
+    border: 10px solid transparent; 
+    border-right: 10px solid grey; 
+    border-bottom: 10px solid grey; 
+}
+.unavalible .text{
+    color: white;
+    text-shadow: 0px 0px 0.5px white;
+    margin-top: 1px;
+}
+
+/* Cкидка */
+.sale{
+    right: 0;
+    top: 20px;
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background-color: lightcoral;
+    z-index: 2;
+}
+.sale::after{
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: -20px; 
+    top: 0px; /* Положение треугольника */
+    border: 10px solid transparent;
+    border-top: 10px solid lightcoral; 
+    border-right: 10px solid lightcoral; 
+}
+.sale::before{
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: -20px; 
+    bottom: 0px; /* Положение треугольника */
+    border: 10px solid transparent; 
+    border-right: 10px solid lightcoral; 
+    border-bottom: 10px solid lightcoral; 
+}
+.sale .percent{
+    color: white;
+    text-shadow: 0px 0px 0.5px black;
+    margin-left: 20px;
+    margin-top: 1px;
+}
+
+/*////////////////////  Рейтинг ////////////////////*/
+.star{
+    float: left;
+    margin-right: 4px;
+}
+.star:hover{
+    text-decoration: none;
+}
+.stars_container img{
+    height: 15px;
+    background-color: gainsboro;
+}
+.stars_container img:hover{
+    background-color: #ffbb00;
+}
+.number_ratings{
+    margin-left: 10px;
+    padding-top: 3px;
+    float: left;
+}
+
+/*////////////////////  footer ////////////////////*/
+.footer{
+    font-size: 18px;
+    height: 300px;
+    background-color: #1D1D1E;
+    color: white;
+}
+.footer_title{
+    color: rgb(98, 111, 119);
+}
+.footer ul{
+    margin: auto;
+    margin-top: 30px;
+}
+.footer li{
+    padding-top: 10px;
+    /* background-color: green; */
+}
+.social_network{
+    margin-bottom: 10px;
+}
+.social_network_icon{
+    float: right;
+    display: block;
+}
+
+/*////////////////////  Тонкая настройка для разных мониторов ////////////////////*/
 /* Экстрамалые девайсы («телефоны», < 576px) */
 @media (min-width: 0px) {
     body{
-        background-color: navajowhite;
+        /* background-color: navajowhite; */
     }
     .basket{
          width:70px;
@@ -93,15 +382,15 @@
     .carousel-item img{
         height: 250px;
     }
-     .no-margin{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
+    .img_container img{
+        width: 70%;
     }
 }
+
 /* Малые девайсы («ландшафтные телефоны», >= 576px) */
 @media (min-width: 576px) {
     body{
-        background-color: lightpink;
+        /* background-color: lightpink; */
     }
     .basket{
         width:70px;
@@ -120,15 +409,15 @@
     .carousel-item img{
         height: 350px;
     }
-    .no-margin{
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+    .img_container img{
+        width: 100%;
     }
 }
+
 /* Средние девайсы («таблетки», >= 768px) */
 @media (min-width: 768px) {
     body{
-        background-color: lightseagreen;
+        /* background-color: lightseagreen; */
     }   
     .nav a{
         margin-left: 10px !important;
@@ -142,13 +431,13 @@
      .basket img{
          left: 6px;
      }
-     .billboard{
-
-     }
 }
 
 /* Большие девайсы (десктопы, >= 992px) */
 @media (min-width: 992px) {
+    body{
+        /* background-color: #ffffff; */
+    }
     .nav a{
         margin-left: 40px !important;
      }

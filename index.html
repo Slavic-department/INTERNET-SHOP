@@ -26,7 +26,7 @@
     </div>
   </div>
 
-<!-- header -->
+  <!-- header -->
   <header class="header">  
     <div class="container">
      <div class="row align-items-center header">
@@ -69,7 +69,7 @@
 
   <!-- billboard -->
   <div class="billboard">
-    <div class="container" >
+    <div class="container">
       <div class="row">
         <div class="col-12 no-margin">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -103,9 +103,338 @@
     </div>
   </div>
 
+  <!-- сортировка -->
+  <div class="sorting">
+    <div class="container mt-sm-3">
+      <div class="row align-items-center d-flex justify-content-between">
+        <div class="col-8 col-sm-10 d-none d-md-block">
+          <button type="button" class="btn btn-link">По популярности</button>
+          <button type="button" class="btn btn-link">Возрастанию</button>
+          <button type="button" class="btn btn-link">Убыванию</button>
+        </div>
+        <div class="col-8 d-md-none">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Сортировать по :
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">По популярности</a>
+              <a class="dropdown-item" href="#">Возрастанию</a>
+              <a class="dropdown-item" href="#">Убыванию</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 col-sm-2 d-flex justify-content-end">
+          <span class="mr-2">Вид:</span>
+          <a href="" class="mr-2"> <img src="img/view-col-3.svg" alt=""> </a>
+          <a href="" class="mr-2"> <img src="img/view-col-4.svg" alt=""> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-2 d-none d-lg-block no-margin">
+            <div class="gender bottom_line">
+              <b class="title_type">Одежда</b>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+                <label class="form-check-label" for="defaultCheck1">
+                  Мужчинам
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                <label class="form-check-label" for="defaultCheck2">
+                  Женщинам
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                <label class="form-check-label" for="defaultCheck3">
+                  Мальчикам
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                <label class="form-check-label" for="defaultCheck4">
+                  Девочкам
+                </label>
+              </div>
+
+              <div class="lines"></div>
+            </div>
+
+
+            <div class="type_clothing bottom_line">
+              <b class="title_type">Вид</b>
+              <!-- пофиксить смену цвета у иконки-->
+              <div class="input-group">
+                <img src="img/icon_search.svg" class="icon_search" alt="">
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Поиск">
+              </div>
+              <div class="scroll-bar no-margin">
+                <div class="man">
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter1" active>
+                    <label class="form-check-label" for="checkbox_filter1">Рубашка</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter2" active>
+                    <label class="form-check-label" for="checkbox_filter2">Футболка</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter3" active>
+                    <label class="form-check-label" for="checkbox_filter3">Турсы</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter4" active>
+                    <label class="form-check-label" for="checkbox_filter4">Картошка</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter5" active>
+                    <label class="form-check-label" for="checkbox_filter5">Помидор</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter6" active>
+                    <label class="form-check-label" for="checkbox_filter6">Огурец</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter7" active>
+                    <label class="form-check-label" for="checkbox_filter7">Майонец</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter8" active>
+                    <label class="form-check-label" for="checkbox_filter8">Шорты</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter9" active>
+                    <label class="form-check-label" for="checkbox_filter9">Масло</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter10" active>
+                    <label class="form-check-label" for="checkbox_filter10">Носки</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter11" active>
+                    <label class="form-check-label" for="checkbox_filter11">Верхняя одежда</label>
+                    <input type="checkbox" class="filter_checkbox" id="checkbox_filter12" active>
+                    <label class="form-check-label" for="checkbox_filter12">Верхняя одежда</label>
+                </div>
+              </div>
+              <div class="lines"></div>
+            </div>
+
+        </div>
+
+        
+        <div class=" col-12 col-lg-10">
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              <div class="img_container">
+                <img src="img/Model1.jpg" alt="">
+                <div class="sale">
+                  <div class="percent">-15%</div>
+                </div>
+              </div>
+                <div class="row price_block align-middle">
+                  <div class="col-6 d-flex flex-column"> 
+                    <span class="promotional_price">181 грн</span>
+                    <span class="current_price line-through">3500 грн</span>
+                  </div>
+                  <div class="col-6 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-lightbtn-primary btn_buy">В корзину</button>
+                  </div>
+                </div>
+              <div class="title_item">Купальник (лиф, трусики) Buffalo</div> 
+    
+              <div class="stars_container align-items-center ">
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+    
+                <span class="number_ratings"> 12</span>
+              </div> 
+                  
+            </div>
+    
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              <div class="img_container">
+                <img src="img/Model2.jpg" class="unavalible_filter" alt="">
+                <div class="unavalible">
+                  <div class="text">Распродано</div>
+                </div>
+              </div>
+                <div class="row price_block align-middle">
+                  <div class="col-6 d-flex flex-column"> 
+                    <span class="price">181 грн</span>
+                  </div>
+                  <div class="col-6 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-lightbtn-primary btn_buy">В корзину</button>
+                  </div>
+                </div>
+              <div class="title_item">Купальник (лиф, трусики) Buffalo</div>
+    
+              <div class="stars_container align-items-center ">
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+    
+                <span class="number_ratings"> 12</span>
+              </div> 
+            </div>
+    
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              <div class="img_container">
+                <img src="img/Model3.jpg" alt="">
+              </div>
+                <div class="row price_block align-middle">
+                  <div class="col-6 d-flex flex-column"> 
+                    <span class="price">181 грн</span>
+                  </div>
+                  <div class="col-6 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-lightbtn-primary btn_buy">В корзину</button>
+                  </div>
+                </div>
+              <div class="title_item">Купальник(лиф, трусики) Buffalo</div>
+    
+              <div class="stars_container align-items-center ">
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+    
+                <span class="number_ratings"> 12</span>
+              </div> 
+            </div>
+    
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              <div class="img_container">
+                <img src="img/Model4.jpg" alt="">
+              </div>
+                <div class="row price_block align-middle">
+                  <div class="col-6 d-flex flex-column"> 
+                    <span class="price">181 грн</span>
+                  </div>
+                  <div class="col-6 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-lightbtn-primary btn_buy">В корзину</button>
+                  </div>
+                </div>
+              <div class="title_item">Купальник (лиф, трусики) Buffalo</div>
+    
+              <div class="stars_container align-items-center ">
+                <a href="" class="star" id="star_1">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_2">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_3">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_4">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_5">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+    
+                <span class="number_ratings"> 12</span>
+              </div> 
+            </div>
+    
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              <div class="img_container">
+                <img src="img/Model4.jpg" alt="">
+              </div>
+                <div class="row price_block align-middle">
+                  <div class="col-6 d-flex flex-column"> 
+                    <span class="price">181 грн</span>
+                  </div>
+                  <div class="col-6 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-lightbtn-primary btn_buy">В корзину</button>
+                  </div>
+                </div>
+              <div class="title_item">Купальник (лиф, трусики) Buffalo</div>
+    
+              <div class="stars_container align-items-center ">
+                <a href="" class="star" id="star_1">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_2">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_3">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_4">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+                <a href="" class="star" id="star_5">
+                  <img src="img/inactive_star.png" alt="">
+                </a>
+    
+                <span class="number_ratings"> 12</span>
+              </div> 
+        </div>
+        
+        <div class="col-12 d-flex justify-content-center more">
+          <button type="button" class="btn btn_more">Показать еще</button>
+        </div>
+      </div>
+    </div>
+         
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container">
-      
+      <div class="row">
+        <div class="col-4 d-flex flex-column">
+          <ul>
+            <li><span class="footer_title">Ссылки</span></li>
+            <li><a href="">Главная</a></li>
+            <li><a href="">Акции</a></li>
+            <li><a href="">О нас</a></li>
+            <li><a href="">Поддержка</a></li>
+          </ul>
+        </div>
+        <div class="col-4 d-flex flex-column">
+          <ul>
+            <li><span class="footer_title">Информация</span></li>
+            <li><a href="">Об интернет-магазине</a></li>
+            <li>Кривой Рог, проспект Гагарина, 24</span></li>
+            <li>+380(97)716-12-50</span></li>
+            <li>kingsize@gmail.com</span></li>
+          </ul>
+        </div>
+        <div class="col-4 d-flex flex-column">
+          <ul>
+            <li><span class="footer_title">Мы в соцсетях</span></li>
+            <li class="social_network"><a href="">facebook<img src="img/facebook_icon.png" alt="" class="social_network_icon"></a></liclass="social_network >
+            <li class="social_network"><a href="">youtube<img src="img/you-tube_icon.png" alt="" class="social_network_icon"></a></li>
+            <li class="social_network"><a href="">instagram<img src="img/instagram_icon.png" alt="" class="social_network_icon"></a></li>
+          </ul>
+        </div> 
+      </div>
     </div>
   </footer>
 	
