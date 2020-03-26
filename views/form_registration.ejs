@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sweets Downtown</title>
+  <meta charset="utf-8">
+  
+  <!--Нужен для маштабирования на разных устройствах-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="public/img/favicon.ico" type="image/ico">
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/style_sass.css">
+  <link href="public/font-awesome/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <%- include("modules/header.ejs") %>
+  
+  <% if (message.error) { %>
+    <%= locals.messages.error %>
+    <% } %>
+    <div class="form-registration">
+        
+        <div class="container">
+            <h1>Регистрация</h1>
+            <div class="row">
+                <div class="col-4">
+                    
+                    <form action="/main" method="POST">
+                        <div class="data-reg d-flex justify-content-between align-items-center">
+                            <label for="name">Ваше имя </label> 
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="data-reg d-flex justify-content-between align-items-center">
+                            <label for="email">Эл. почта или телефон </label> 
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="data-reg d-flex justify-content-between align-items-center">
+                            <label for="password">Пароль </label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <a type="submit" class="registration">Зарегестрироваться</a>
+                        <button type="submit">wqewqewqe</button>
+                    </form>
+                    
+                    <div class="condition_pass_wr">
+                        <span class="condition_pass">Пароль должен быть не менее 6 символов, содержать цифры и заглавные буквы и не должен совпадать с именем и эл.почтой </span>
+                    </div>
+                    <div class="btn_registration_wr">
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-8 social-network">
+                    <!-- <h2>Связь с социальными сетями</h2>
+                    <span>Вы можете зарегистрироваться на «Розетке» с помощью учетных записей социальных сетей</span> -->
+
+                    <a href="">Google</a>
+                    <a href="">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <%- include("modules/footer.ejs") %>
+  <script src="../public/js/main.js"></script>
+  <script src="../public/https://kit.fontawesome.com/c4ee3c753d.js" crossorigin="anonymous"></script>
+  <script src="../public/js/jquery-3.2.1.js"></script>
+  <script src="../public/js/popper.min.js"></script>
+  <script src="../public/js/bootstrap.min.js"></script>
+ 
+</body>
+
+</html>

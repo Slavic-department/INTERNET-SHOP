@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sweets Downtown</title>
+  <meta charset="utf-8">
+  
+  <!--Нужен для маштабирования на разных устройствах-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="public/img/favicon.ico" type="image/ico">
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/style_sass.css">
+  <link href="public/font-awesome/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <%- include("modules/header.ejs") %>
+  <div class="billboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 no-margin">
+
+          <h2 class="title">Рекомендуемый товар</h2>
+
+          <div class="slider">
+            <div class="slider__wrapper">
+              <div class="slider__item">           
+                  <div class="d-flex">
+                    <img src="public/img/Товар/1.png" alt="">
+                    <b>Lotte Wedel</b>
+                  </div>     
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/2.png" alt="">
+                  <b>Grand Praline</b>
+                </div>  
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/3.png" alt="">
+                  <b>Вафельные конфеты</b>
+                </div>  
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/4.png" alt="">
+                  <b>Neuhaus</b>
+                </div>  
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/5.png" alt="">
+                  <b>Mister Cho</b>
+                </div>  
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/6.png" alt="">
+                  <b>Milk Baci Bijou</b>
+                </div>  
+              </div>
+              <div class="slider__item">
+                <div class="d-flex">
+                  <img src="public/img/Товар/7.png" alt="">
+                  <b>ЛогинСсмак</b>
+                </div>  
+              </div>
+            </div>
+            <a class="slider__control slider__control_left" href="#" role="button"></a>
+            <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- сортировка --> 
+<div class="sorting"> 
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-12 d-flex justify-content-end align-items-center"> 
+
+
+        <div class="dropdown mr-3 "> 
+          <select name="" id="" class="select_color">
+           <option value="rank">По рейтингу</option>
+           <option value="cheap">От дешевых к дорогим</option>
+           <option value="expensive">От дорогих к дешевым</option>
+           <option value="action">Акционные</option>
+          </select>
+         </div> 
+         <!-- <div class="block_size mr-auto">
+          <span class="mr-1">Вид: </span> 
+          <a href="" class="mr-2"> <img src="img/view-col-3.svg" alt=""> </a> 
+          <a href="" class="mr-2"> <img src="img/view-col-4.svg" alt=""> </a> 
+        </div> -->
+         
+        <div class="search_wr mr-3">
+          <input type="search" class="form-control search" id="inlineFormInputGroupUsername2" placeholder="Поиск">
+          <img src="public/img/icon_search.svg" alt="">
+        </div>
+
+        
+
+        
+
+      </div> 
+    </div>
+  </div> 
+</div>
+
+<!--//////////////////// content ////////////-->
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="filter_container d-none d-md-block col-3">
+          <div class="filter_wr">
+
+            <span class="about">Фильтры товаров</span>    
+            
+            <!-- Бренды -->
+            <div class="title d-flex justify-content-between align-items-center" onclick="show_hide('filter_brand')">
+              <b>Бренды</b>
+              <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </div>
+
+           <div class="filter_brand" id="filter_brand">
+              <div class="input-group">
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Поиск фильтра">
+              </div>
+              <div class="scroll-bar no-margin">
+                <ul>
+                  <li>
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                      <label class="form-check-label label_checkbox" for="defaultCheck3">
+                        Lindt
+                      </label>
+                  </li>
+                  <li>
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                      <label class="form-check-label label_checkbox" for="defaultCheck4">
+                        Milka
+                      </label>
+                  </li>
+                  <li>
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                      <label class="form-check-label label_checkbox" for="defaultCheck5">
+                        Millenium
+                      </label>
+                  </li>
+                  <li>
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                      <label class="form-check-label label_checkbox" for="defaultCheck6">
+                        Roshen
+                      </label>
+                  </li>
+                  <li>
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                      <label class="form-check-label label_checkbox" for="defaultCheck7">
+                        Spell
+                      </label>
+                  </li>
+                </ul>
+              </div>
+           </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 no-margin">
+          <div class="item_container" id="items_container">
+            <div class="col-sm-6 col-md-4 col-xl-3 item">
+              
+              <div class="info d-flex justify-content-between">
+                <span class="code_item">Код товара: 1951</span>
+                <span class="status">В наличии</span>
+              </div>
+
+              <div class="img_wr">
+                <img id="" src="public/img/item_1.png" alt="">
+              </div>
+
+              <div class="stars_container">
+                <i class="star fas fa-star star_btn"></i>
+                <i class="star far fa-star star_btn"></i>
+                <i class="star far fa-star star_btn"></i>
+                <i class="star far fa-star star_btn"></i>
+                <i class="star far fa-star star_btn"></i>
+                <span class="number_ratings">Отзывы: 0</span>
+              </div>
+
+              <div class="title_wr">
+                <!-- <span class="title_item"><b>Twix •</b></span> -->
+                <span class="name_item">Набор из 32-х батончиков с арахисом.</span>
+              </div>
+
+              <div class="block_price d-flex justify-content-between align-items-center">
+                <div class="price_wr d-flex">
+                  <!-- <div class="price">
+                    120грн
+                  </div> -->
+                  <span class="promotional_price">95грн</span>
+                  <span class="line-through_price">181 грн</span>
+                </div>
+                <div class="btn_wr">
+                  <button type="button" class="btn btn-secondary btn_buy">В корзину</button>
+                </div>
+              </div>
+
+              <div class="additional_information">
+                <span class="font-weight-bold">Тип изделия: <span class="font-weight-normal">Бумажная</span></span>
+                
+                <span class="font-weight-bold">Упаковка: <span class="font-weight-normal">Напиток</span></span>
+               
+                <span class="font-weight-bold">Производитель: <span class="font-weight-normal">Twix</span></span>
+                     
+                <span class="font-weight-bold">Cтрана-производитель: <span class="font-weight-normal">Украина</span></span>
+                      
+                <span class="font-weight-bold">Особенности: <span class="font-weight-normal">Без ГМО, Диетические</span></span>
+              </div> 
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="block_more">
+    <div class="container">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10 no-margin d-flex justify-content-center more">
+          <button type="button" class="btn btn_more">Показать еще</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <%- include("modules/footer.ejs") %>
+  <script src="../public/js/s"></script>
+  <script src="../public/js/slider.js"></script>
+  <!-- <script src="../public/js/generator.js"></script> -->
+  <script src="../public/js/main.js"></script>
+  <script src="../public/https://kit.fontawesome.com/c4ee3c753d.js" crossorigin="anonymous"></script>
+  <script src="../public/js/jquery-3.2.1.js"></script>
+  <script src="../public/js/popper.min.js"></script>
+  <script src="../public/js/bootstrap.min.js"></script>
+ 
+</body>
+
+</html>
