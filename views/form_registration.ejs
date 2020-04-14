@@ -12,11 +12,9 @@
   <link href="public/font-awesome/css/all.css" rel="stylesheet">
 </head>
 <body>
-  <%- include("modules/header.ejs") %>
+    <%- include("modules/header.ejs") %>
   
-  <% if (message.error) { %>
-    <%= locals.messages.error %>
-    <% } %>
+
     <div class="form-registration">
         
         <div class="container">
@@ -24,7 +22,7 @@
             <div class="row">
                 <div class="col-4">
                     
-                    <form action="/main" method="POST">
+                    <form action="/register" method="POST">
                         <div class="data-reg d-flex justify-content-between align-items-center">
                             <label for="name">Ваше имя </label> 
                             <input type="text" id="name" name="name">
@@ -37,8 +35,8 @@
                             <label for="password">Пароль </label>
                             <input type="password" id="password" name="password">
                         </div>
-                        <a type="submit" class="registration">Зарегестрироваться</a>
-                        <button type="submit">wqewqewqe</button>
+                        <!-- <a type="submit" class="registration"></a> -->
+                        <button type="submit">Зарегестрироваться</button>
                     </form>
                     
                     <div class="condition_pass_wr">

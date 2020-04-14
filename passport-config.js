@@ -1,6 +1,8 @@
+//Используем локальную стратегию
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 
+//pasport просто библиотека
 function initialize(passport, getUserByEmail, getUserById) {
   const authenticateUser = async (email, password, done) => {
     const user = getUserByEmail(email)
@@ -17,13 +19,16 @@ function initialize(passport, getUserByEmail, getUserById) {
     } catch (e) {
       return done(e)
     }
-  }
+  };
 
+  //имя поля в форме
   passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
+  //Формирует сессию
   passport.serializeUser((user, done) => done(null, user.id))
+  //Берёт пользователя из базы пользователей.
   passport.deserializeUser((id, done) => {
     return done(null, getUserById(id))
   })
 }
 
-module.exports = initialize
+module.exports = initialize;
