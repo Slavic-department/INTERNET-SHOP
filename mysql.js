@@ -1,53 +1,59 @@
 const mysql = require('mysql'); 
 const express = require('express');
 const server = express();
-const mysqlSession = require('express-mysql-session');
-const expressSession = require('express-session');
-const model_user = require('./models/user');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session');
+const util = require('util')
 
 //Подключаемся к БД
-const mysqlStore = mysqlSession({
-    schema: {
-        tableName: "sessions",
-        column: {
-            session_id: "session_id",
-            expires: "expires", //Указывает дату время истекания сесии
-            data: "data" //Данные про пользовтеля
-        }
-    }
-}, mysql.connection);
+const connection = mysql.createConnection({
+    host: process.env.HOST,
+    port: process.env.PORT,
+    user: process.env.USER_NAME,
+    password: false,
+    database: process.env.DATABASE_NAME
+})
 
-//aa
-server.use(expressSession({
+connection.connect((err, connection) => {
+  if (err) {
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+      console.error('Подкл. к БД закрыто!')
+    }
+    if (err.code === 'ER_CON_COUNT_ERROR') {
+      console.error('Слишком много подкл. к БД!')
+    }
+    if (err.code === 'ECONNREFUSED') {
+      console.error('Отказ в соединении с БД')
+    }
+  }
+  
+    if (connection) {
+      console.log("Подключение к серверу MySQL успешно установлено");
+      //освобождает соединение обратно в пул
+      // connection.release()
+    }
+    return
+  })
+exports.connection = connection;
+
+const mysqlStore = MySQLStore({
+  schema: {
+      tableName: "sessions",
+      columnNames: {
+          session_id: "session_id",
+          expires: "expires",
+          data: "data"
+      }
+  }
+}, connection)
+
+
+server.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: mysqlStore
 }));
 
-connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: false,
-    database: 'sweet_downtown'
-})
-exports.connection = connection;
+const model_user = require('./models/user');
 
-
-
-//Тестовая функция
-exports.init = () => {
-    connection.connect((error) => {
-        if (error != null) {
-            console.log("MySQL connection error:")
-            console.log(error.code)
-        } else {
-            console.log("MySQL successfully connected.")
-        }
-    })
-}
-
-// model_user.selectUserByName('Шолох Тимур Олександрович').then(data => {
-//     console.log(data);
-// })

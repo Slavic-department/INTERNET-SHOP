@@ -20,39 +20,23 @@
   
     <header class="header">
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
   
-          <div class="col-6 col-5 col-sm-5 col-md-3">
-            <div class="row align-items-center">
-              <div class="col-12 col-sm-10">
-                <img src="public/img/Logo.png" alt="Лого" class="img-fluid rounded mx-auto d-block logo">
-              </div>
-              <!-- Вертикальная линия, которая пропадает на <576 уровне -->
-              <div class="col-sm-2 d-none d-sm-block">
-                <div class="line"></div>
-              </div>
-            </div>
+          <div class="logo col-6 col-sm-5 col-md-3 align-self-center">
+            <img src="public/img/Logo.png" alt="Лого">
           </div>
   
-          <nav class="nav col-3 col-sm-5 col-md-7 ">
-            <div class="row align-items-center">
-              <div class="col-sm-10 col-md-12">
-                <a href="/">Главная</a>
-                <a href="">Акции</a>
-                <br class="d-md-none">
-                <a href="">О нас</a>
-                <a href="">Поддержка</a>
-              </div>
-              <!-- Вертикальная линия, которая пропадает на <576 уровне -->
-              <div class="col-sm-2 d-none d-sm-block d-md-none">
-                <div class="line"></div>
+          <nav class="col-3 col-sm-5 col-md-7 d-flex align-items-end justify-content-center">
+            <div class="search_wr">
+              <input type="search" class="form-control search" id="inlineFormInputGroupUsername2" placeholder="Поиск товара">
+              <div class="search_icon_wr" onclick="search()">
+                <img src="public/img/icon_search.svg" alt="">
               </div>
             </div>
           </nav>
   
-          <div class="col-3 col-sm-2 col-sm-2">
-            <button type="button" class="btn btn-light basket"><img src="public/img/basket.png" alt=""><span
-                class="d-none d-md-block">Корзина</span></button>
+          <div class="col-3 col-sm-2 col-md-2 align-self-center">
+            <button type="button" class="btn btn-light basket"><img src="public/img/basket.png" alt=""><span class="d-none d-md-block">Корзина</span></button>
           </div>
   
         </div>
