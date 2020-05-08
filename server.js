@@ -80,7 +80,7 @@ server.use(methodOverride('_method'))
 //Указываем публичную папку
 server.use("/public", express.static("public"));
 
-///////////////Маршрутизация////////////////////////////
+///////////////Маршрутизация///////////////////////////
 server.get('/', checkAuthenticated, main_form.get_main)
 
 server.post('/', main_form.post_main); 
