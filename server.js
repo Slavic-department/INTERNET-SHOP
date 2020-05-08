@@ -10,6 +10,8 @@ const server = express();
 const mysql = require('./mysql');
 const models_user = require('./models/user')
 
+const main_form = require('./controllers/main_form')
+
 var cookieParser = require('cookie-parser')
 server.use(cookieParser())
 
@@ -57,15 +59,20 @@ const bcrypt  = require('bcrypt');
 //Указывает шаблонизатор
 server.set('view engine', 'ejs');
 
-//Позволяет парсить то, что приходит из формы.
+//Позволяет парсить то, что приходит из формы. (устанавливает режим передачи переменных на форму)
 server.use(express.urlencoded({ extended: false }));
 
 //Поддержка сессии
+
+
 server.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-}))
+}));
+
+
+
 server.use(passport.initialize())
 server.use(passport.session())
 server.use(methodOverride('_method'))
@@ -74,16 +81,9 @@ server.use(methodOverride('_method'))
 server.use("/public", express.static("public"));
 
 ///////////////Маршрутизация////////////////////////////
-server.get('/', checkAuthenticated, (req, res) => {
-    res.render('main.ejs')
-})
+server.get('/', checkAuthenticated, main_form.get_main)
 
-server.post('/', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/#openModal',
-    //Если true, то добавит flash-сообщение в случае ошибки.
-    failureFlash: true
-})); 
+server.post('/', main_form.post_main); 
 
 server.get('/register', function(req, res) {
     res.render('form_registration.ejs', {
