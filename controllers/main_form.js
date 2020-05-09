@@ -3,6 +3,7 @@ exports.get_main = (req, res) => {
     res.render('main.ejs')
 }
 
+//! ПЕРЕДЕЛАТЬ 35 МИНУТА
 exports.post_main = passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/#openModal',

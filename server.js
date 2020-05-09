@@ -1,164 +1,88 @@
-//подключаем файлик.env, если он есть
+// *Запускать сервер через npm run dev
+
+//подключаем файл .env, если он есть
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
 
 //Нужен для создания ВЕБ-приложения
-const express = require('express');
-const server = express();
-
-const mysql = require('./mysql');
-const models_user = require('./models/user')
-
-const main_form = require('./controllers/main_form')
-
-var cookieParser = require('cookie-parser')
-server.use(cookieParser())
-
-//Нужен для ненавязчивой аутентификации и выбора стратегии
-const passport = require('passport');
-
-//Это серверные сообщения, которые отображаются только один раз.
-const flash = require('express-flash');
-
-//Надо для созданий и удалений сессий
-const session = require('express-session');
-//Позволяет использовать HTTP-глаголы, такие как PUT или DELETE, в местах, где клиент их не поддерживает.
-
-
-const methodOverride = require('method-override')
-//
-const initializePassport = require('./passport-config')
-
-//Чтобы получать значения POST в Express, 
-const bodyParser = require('body-parser')
-server.use(bodyParser.urlencoded({ extended: false }))
-//Позволяет выводить ошибку на форму 
-server.use(flash());
-
-//Запускать через npm run dev
-
-initializePassport(passport)
-
-async function fff(req){
-//    let q = (await models_user.selectUserById(1).data.Email)
-//    console.log(q)
-    let user = await models_user.selectUserByEmail('timur.sholokh@gmail.com')
-    // console.log(user.data.Пароль)
-    // if (req.isAuthenticated()) {
-    //     console.log('Авторизван')
-    // }else{
-    //     console.log('Не авторизван')
-    // }
-}
-// fff()
-
-//Указывает выбраный хешировщик
-const bcrypt  = require('bcrypt');
+const express = require('express')
+const server = express()
 
 //Указывает шаблонизатор
 server.set('view engine', 'ejs');
 
-//Позволяет парсить то, что приходит из формы. (устанавливает режим передачи переменных на форму)
-server.use(express.urlencoded({ extended: false }));
+//Позволяет использовать .put().delete().patch() при отлавливании запроса
+const methodOverride = require('method-override')
+server.use(methodOverride('_method'))
 
-//Поддержка сессии
+// !Позволяет выводит flash сообщения на страницу при помощи сесий (проверить на роботу с сесией в другом модуле)
+const flash = require('connect-flash');
+server.use(flash());
 
+// *Указываем публичную папку
+server.use("/public", express.static("public"));
 
+//Указывает выбраный хешировщик для паролей
+const bcrypt  = require('bcrypt');
+
+//Позволяет брать значения из формы при помощи req.body
+const bodyParser = require('body-parser')
+server.use(bodyParser.urlencoded({ extended: false })) //true, чтобы принимать переменные в виде массива
+
+const mysql = require('./mysql');
+
+//Нужно для созданий и удалений сессий
+const session = require('express-session');
+
+const MySQLStore = require('express-mysql-session');
+const mysqlStore = MySQLStore({
+    schema: {
+        tableName: "sessions",
+        columnNames: {
+            session_id: "session_id",
+            expires: "expires",
+            data: "data"
+        }
+    }
+  }, mysql.connection)
+  
 server.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: mysqlStore //храним сессию в бд.
 }));
 
-
-
+//Нужен для ненавязчивой аутентификации и выбора стратегии
+const passport = require('passport')
+const initializePassport = require('./passport-config')
+initializePassport(passport)
 server.use(passport.initialize())
 server.use(passport.session())
-server.use(methodOverride('_method'))
 
-//Указываем публичную папку
-server.use("/public", express.static("public"));
+//Нужно для работы с куки (Этот модуль использовать другие модули)
+let cookieParser = require('cookie-parser');
+server.use(cookieParser());
 
-///////////////Маршрутизация///////////////////////////
-server.get('/', checkAuthenticated, main_form.get_main)
+/*-------------------Модели-------------------*/
+const models_user = require('./models/user')
+
+/*-----------------Контроллеры-----------------*/
+const main_form = require('./controllers/main_form')
+const register_form = require('./controllers/register_form')
+
+/*-----------------Маршрутизация-----------------*/
+server.get('/', register_form.checkAuthenticated, main_form.get_main)
 
 server.post('/', main_form.post_main); 
 
-server.get('/register', function(req, res) {
-    res.render('form_registration.ejs', {
-        data: {},
-        errors: {}
-    })
-})
+server.get('/register', register_form.checkAuthenticated, register_form.get_register)
 
-
-//Моя регистрация
-server.post('/register', async (req, res) => {
-    if(req.body.name == '' &&  req.body.password == ''){
-        let error = 'asdasd'
-        res.render('form_registration', {
-            data: req.body, 
-            errors: {
-                emptiness: {
-                    msg: 'Вы не заполнили одно из полей'
-               }
-            }
-          })
-    }else{
-        try {
-            // шифруем парольaa
-            const hashedPassword = await bcrypt.hash(req.body.password, 10)
-
-            await models_user.insertUser(req.body.name, req.body.email, hashedPassword)
-
-            res.redirect('/')
-        } catch {
-            res.redirect('/register')
-        }
-    }
-})
+server.post('/register', register_form.post_register)
 
 //Удаляет вход в сессию
-server.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/')
-})
-
-//Проверка авторизован, то нельзя зайфти
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        console.log("Авторизован!!!")
-        next()
-        // return next()
-    }else{
-        console.log("Не Авторизован!!!")
-        next()
-    }
-    // res.redirect('/')
-}
-
-function checkmiddleware(req, res, next) {
- console.log("Мидллвар дощел до этого места")
- next()
-}
-
-//Если авторизован, то нельзя зайти на авторизацию
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return res.redirect('/')
-    }
-    next()
-}
-
-// server.get('/item/:id', function(req, res) {
-//     res.send('adaasTsdasdahasdsadsdasdifsdfdsfsdfsdfsdfsdfs');
-// });
-
-// server.post('/registration', function(req, res) {
-//     req.body.email;
-// });
-
+server.delete('/logout', register_form.logout)
 
 //Выбираем порт
 server.listen(3000);

@@ -1,13 +1,6 @@
-const LocalStrategy = require('passport-local').Strategy
+const LocalStrategy = require('passport-local').Strategy //пользователь и пароль
 const bcrypt = require('bcrypt')
 const models_user = require('./models/user')
-async function fff(){
-  //    let q = (await models_user.selectUserById(1).data.Email)
-  //    console.log(q)
-      // let user = await models_user.selectUserByEmail('timur.sholokh@gmail.com')
-      // console.log(user.data.Пароль)
-  }
-  // fff()
 
 //pasport просто библиотека
 function initializePassport(passport) {
@@ -15,7 +8,6 @@ function initializePassport(passport) {
   const authenticateUser = async (email, password, done) => {
     const user = await models_user.selectUserByEmail(email)
     if (user == null) {
-      // Стратегии требуют так называемого обратного вызова проверки done. Цель обратного вызова проверки - найти пользователя, обладающего набором учетных данных.
       done(null, false, { message: 'Нет пользователя с такой почтой' })
     }
     try {
@@ -38,14 +30,12 @@ function initializePassport(passport) {
 
   //срабатывает, когда нужно записать юзера в какой-нибудь строковой вид (например, в куки записать id-шник этого юзера)
   passport.serializeUser((user, done) => {
-    console.log("serialize user");
-    console.log(user.data.ID_пользователя)
+    console.log("serialize user"); 
     done(null, user.data.ID_пользователя)
   })
 
   //срабатывает тогда, когда были получены эти самые данные (в нашем примере id-шник в куки) и нужно по ним вернуть обратно юзера 
   passport.deserializeUser(async (id, done) => {
-    console.log(id)
     console.log("de-serialize user");
     let selectResult = await models_user.selectUserById(id);
     if(selectResult.error) {

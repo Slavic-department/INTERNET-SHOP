@@ -1,9 +1,4 @@
 const mysql = require('mysql'); 
-const express = require('express');
-const server = express();
-const session = require('express-session');
-const MySQLStore = require('express-mysql-session');
-const util = require('util')
 
 //Подключаемся к БД
 const connection = mysql.createConnection({
@@ -35,25 +30,6 @@ connection.connect((err, connection) => {
     return
   })
 exports.connection = connection;
-
-const mysqlStore = MySQLStore({
-  schema: {
-      tableName: "sessions",
-      columnNames: {
-          session_id: "session_id",
-          expires: "expires",
-          data: "data"
-      }
-  }
-}, connection)
-
-
-server.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: mysqlStore
-}));
 
 const model_user = require('./models/user');
 
